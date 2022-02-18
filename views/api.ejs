@@ -1,0 +1,24 @@
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">City</th>
+          <th scope="col">Tempreture</th>
+          <th scope="col">Weather</th>
+          <th scope="col">Pressure</th>
+          <th scope="col">Humidity</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td><%= city %> </td>
+          <td><%= response.main.temp %> </td>
+          <td> <%= response.weather[0].description %>  </td>
+          <td><%= response.main.pressure %> </td>
+          <td><%= response.main.humidity %> </td>
+
+      </tbody>
+  </table>
