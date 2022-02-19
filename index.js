@@ -65,7 +65,7 @@ app.get('/api', async(req, res) => {
         );
         let response = await weather.json();
         
-        //processing data from api
+        //error handling
         if(response.cod === '404'){
             return res.render('error',{
                 title: 'Error',
