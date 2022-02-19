@@ -57,7 +57,7 @@ app.get('/api', async(req, res) => {
     //fetching data from the form
     const city = req.query;
 
-    
+
     
     //processing data from api
         const weather = await fetch(
@@ -65,17 +65,24 @@ app.get('/api', async(req, res) => {
         );
         let response = await weather.json();
         
-    
- 
-        res.render('api',{
+        //processing data from api
+        if(response.cod === '404'){
+            return res.render('error',{
+                title: 'Error',
+                layout: 'layouts/main'
+            })
+        }else{
+            res.render('api',{
             title: 'API',
             layout: 'layouts/main',
             response: response,
             city: city.city
             
-    
-    })
+        })
+
+        }
 })
+
 
 app.listen(port, () => {
     console.log(`app is runing on port ${port}`);
